@@ -1,5 +1,13 @@
 ---
-- Character 1
-- Character 2
-- Character 3
-- Character 4
+- alias: Character 1
+  description: This is the first character
+  file: character-1.yaml
+- alias: Character 2
+  description: This is the second character
+  file: character-2.yaml
+- alias: Character 3
+  description: This is the third character
+  file: character-3.yaml
+- alias: Character 4
+  description: This is the fourth character
+  file: character-4.yaml
