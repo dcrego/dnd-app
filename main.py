@@ -3,10 +3,10 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
-def create_on_clicked(n:int):
+def create_on_clicked(name:str):
     def on_clicked(btn):
         print('on_clicked')
-        print('n:', n)
+        print('name:', name)
         print('btn:', btn)
     return on_clicked
 
@@ -20,9 +20,10 @@ def on_activate(app:Gtk.Application):
     lbl = Gtk.Label('Characters')
     box.add(lbl)
     btns = Gtk.ButtonBox(orientation=Gtk.Orientation.VERTICAL)
-    for n in range(1, 5):
-        btn = Gtk.Button(label='Character %d'%n)
-        btn.connect('clicked', create_on_clicked(n))
+    import characters
+    for name in characters.get_characters():
+        btn = Gtk.Button(label=name)
+        btn.connect('clicked', create_on_clicked(name))
         btns.add(btn)
     box.add(btns)
     win.add(box)
