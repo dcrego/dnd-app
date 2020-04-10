@@ -18,8 +18,11 @@ class CharactersBox(Gtk.Box):
     self.add(btns)
 
 class CharacterBox(Gtk.Box):
-  def __init__(self, character:dict):
+  def __init__(self, character:dict, go_back):
     super().__init__(orientation=Gtk.Orientation.VERTICAL)
+    btn = Gtk.Button(label='← back')
+    btn.connect('clicked', lambda x: go_back())
+    self.add(btn)
     lbl = Gtk.Label(label=character['alias'])
     self.add(lbl)
     lbl = Gtk.Label(label=character['description'])
