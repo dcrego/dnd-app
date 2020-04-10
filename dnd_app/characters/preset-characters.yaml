@@ -1,9 +1,5 @@
 ---
-- alias: Gunnig Rho
-  description: male dwarf fighter
-- alias: Sis. Delilah
-  description: female human cleric
-- alias: Melen Quickstab
-  description: male halfling rogue
-- alias: Disenion Solferalis
-  description: female elf wizard
+- preset-dwarf-fighter.yaml
+- preset-human-cleric.yaml
+- preset-halfling-rogue.yaml
+- preset-elf-wizard.yaml

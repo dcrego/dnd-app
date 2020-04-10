@@ -10,13 +10,13 @@ Planned one character for each basic class according to [SRD][srd]
 ---|-----------|--------|----------|-------
 1  | Barbarian | Male   | Half-Orc | melee, tank, skilled
 2  | Bard      | Male   | Gnome    | arcane magic, divine magic, skilled
-3  | Cleric    | Male   | Human    | divine magic, tank
+3  | Cleric    | Female | Human    | divine magic, tank
 4  | Druid     | Female | Elf      | divine magic, skilled
 5  | Fighter   | Male   | Dwarf    | tank, melee, perky
 6  | Monk      | Female | Human    | melee, skilled
 7  | Paladin   | Male   | Human    | tank, melee, divine magic
 8  | Ranger    | Male   | Elf      | ranged, melee, skilled
-9  | Rogue     | Female | Halfling | melee, ranged, skilled
+9  | Rogue     | Male   | Halfling | melee, ranged, skilled
 10 | Sorcerer  | Female | Half-Elf | arcane magic
 11 | Wizard    | Female | Elf      | arcane magic, perky
 

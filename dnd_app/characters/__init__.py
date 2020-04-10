@@ -1,15 +1,23 @@
+import pkg_resources, yaml
 
-def get_characters() -> list:
-  import yaml
-  import pkg_resources
+def get_characters():
   with pkg_resources.resource_stream(__package__, 'preset-characters.yaml') as characters_stream:
-    characters_list = yaml.full_load(characters_stream)
-  return characters_list
+    character_files = yaml.full_load(characters_stream)
+  for character_file in character_files:
+    yield Character(character_file)
 
 
 class Character:
 
-  def __init__(self, data:dict):
+  def __init__(self, file:str):
     super().__init__()
-    self.alias = data['alias']
-    self.description = data['description']
+    character_data = dict()
+    with pkg_resources.resource_stream(__package__, file) as character_stream:
+      character_data = yaml.full_load(character_stream)
+    self.name = character_data['name']
+    self.gender = character_data['description']['gender']
+    self.race = character_data['description']['race']
+    self.class0 = character_data['class']
+
+  def description(self):
+    return '%s %s'%(self.gender, self.race)

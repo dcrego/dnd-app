@@ -20,12 +20,11 @@ class CharactersPage(Gtk.Box, Page):
       def on_clicked(actionable):
         self.appwin.navigate(CharacterPage(self.appwin, character))
       return on_clicked
-    for character_data in characters.get_characters():
-      character=characters.Character(character_data)
+    for character in characters.get_characters():
       btn = Gtk.Button()
       box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-      box.add(Gtk.Label(label=character.alias))
-      box.add(Gtk.Label(label=character.description))
+      box.add(Gtk.Label(label=character.name))
+      box.add(Gtk.Label(label='%s %s'%(character.description(), character.class0)))
       btn.add(box)
       btn.connect('clicked', create_on_clicked(character))
       btns.add(btn)
@@ -42,5 +41,6 @@ class CharacterPage(Gtk.Box, Page):
       self.appwin.navigate_back()
     btn.connect('clicked', on_click)
     self.add(btn)
-    self.add(Gtk.Label(label=character.alias))
-    self.add(Gtk.Label(label=character.description))
+    self.add(Gtk.Label(label=character.name))
+    self.add(Gtk.Label(label=character.description()))
+    self.add(Gtk.Label(label=character.class0))
