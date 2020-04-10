@@ -36,7 +36,7 @@ class CharacterPage(Gtk.Box, Page):
     Page.__init__(self, appwin)
     btn = Gtk.Button(label='← back')
     def on_click(actionable):
-      self.appwin.navigate(CharactersPage(appwin))
+      self.appwin.navigate_back()
     btn.connect('clicked', on_click)
     self.add(btn)
     lbl = Gtk.Label(label=character.alias)

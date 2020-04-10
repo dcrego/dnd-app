@@ -24,11 +24,17 @@ class ApplicationWindow(Gtk.ApplicationWindow):
       'default-height': 600
     }
     super().__init__(**options)
-    self.current_page=None
+    self.page_stack=[]
 
-  def navigate(self:Gtk.ApplicationWindow, target_page:pages.Page):
-    if (self.current_page):
-      self.remove(self.current_page)
+  def navigate(self, target_page:pages.Page):
+    if (self.page_stack):
+      self.remove(self.page_stack[-1])
     self.add(target_page)
-    self.current_page = target_page
+    self.page_stack.append(target_page)
+    self.show_all()
+  
+  def navigate_back(self):
+    current_page= self.page_stack.pop()
+    self.remove(current_page)
+    self.add(self.page_stack[-1])
     self.show_all()
