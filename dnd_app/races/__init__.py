@@ -41,14 +41,14 @@ class RaceLoader:
       cls.__instance = object.__new__(cls)
       import pkg_resources, yaml
       with pkg_resources.resource_stream(__package__, 'index.yaml') as index_stream:
-        cls.__instance.__index = yaml.full_load(index_stream)
+        cls.__instance.__index = yaml.load(index_stream, Loader=yaml.SafeLoader)
       cls.__instance.keys = cls.__instance.__index.keys
     return cls.__instance
 
   def load(self, key:str) -> Race:
     import pkg_resources, yaml
     with pkg_resources.resource_stream(__package__, self.__index[key]) as race_stream:
-      race_data = yaml.full_load(race_stream)
+      race_data = yaml.load(race_stream, Loader=yaml.SafeLoader)
     return Race(race_data)
 
 

@@ -8,7 +8,7 @@ class Character:
     super().__init__()
     character_data = dict()
     with pkg_resources.resource_stream(__package__, file) as character_stream:
-      character_data = yaml.full_load(character_stream)
+      character_data = yaml.load(character_stream, Loader=yaml.SafeLoader)
     self.name = character_data['name']
     self.gender = character_data['description']['gender']
     from ..races import load_race
@@ -22,6 +22,6 @@ class Character:
 
 def get_characters() -> Iterable[Character]:
   with pkg_resources.resource_stream(__package__, 'preset-characters.yaml') as characters_stream:
-    character_files = yaml.full_load(characters_stream)
+    character_files = yaml.load(characters_stream, Loader=yaml.SafeLoader)
   for character_file in character_files:
     yield Character(character_file)
