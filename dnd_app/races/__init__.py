@@ -1,5 +1,4 @@
 from typing import Dict, Any
-import pkg_resources, yaml
 
 
 class Race:
@@ -30,20 +29,32 @@ class Race:
     return f'Race({repr(self.name)})'
 
 
-def load_index() -> Dict[str, str]:
-  with pkg_resources.resource_stream(__package__, 'index.yaml') as index_stream:
-    return yaml.full_load(index_stream)
+class RaceLoader:
+
+  __instance = None
+
+  def __new__(cls):
+    if not cls.__instance:
+      cls.__instance = object.__new__(cls)
+      import pkg_resources, yaml
+      with pkg_resources.resource_stream(__package__, 'index.yaml') as index_stream:
+        cls.__instance.__index = yaml.full_load(index_stream)
+      cls.__instance.keys = cls.__instance.__index.keys
+    return cls.__instance
+
+  def load(self, key:str) -> Race:
+    import pkg_resources, yaml
+    with pkg_resources.resource_stream(__package__, self.__index[key]) as race_stream:
+      race_data = yaml.full_load(race_stream)
+    return Race(race_data)
+
+
+def load_race(key:str) -> Race:
+  return RaceLoader().load(key)
 
 def load_all_races() -> Dict[str, Race]:
-  index = load_index()
-  races = dict()
-  for key in index:
-    races[key] = load_race(key)
+  loader = RaceLoader()
+  races = {}
+  for key in loader.keys():
+    races[key] = loader.load(key)
   return races
-
-def load_race(key:str, index:Dict[str, str]=None) -> Race:
-  if not index:
-    index = load_index()
-  with pkg_resources.resource_stream(__package__, index[key]) as race_stream:
-    race_data = yaml.full_load(race_stream)
-  return Race(race_data)

@@ -1,6 +1,7 @@
+from typing import Iterable
 import pkg_resources, yaml
 
-def get_characters():
+def get_characters() -> Iterable[Character]:
   with pkg_resources.resource_stream(__package__, 'preset-characters.yaml') as characters_stream:
     character_files = yaml.full_load(characters_stream)
   for character_file in character_files:

@@ -44,53 +44,49 @@ class TestDefaultRace(unittest.TestCase):
     assert race.speed == 30, race.speed
 
 
-class TestLoadRaces(unittest.TestCase):
+class TestRaceLoader(unittest.TestCase):
 
-  __index = races.load_index()
-  __all_races = races.load_all_races()
+  __loader = races.RaceLoader()
 
-  def test_len(self):
-    index = type(self).__index
-    all_races = type(self).__all_races
-    assert len(index) >= 4, len(index)
-    assert len(all_races) >= 4, len(all_races)
-    assert len(index) == len(all_races), {'index': len(index), 'all races': len(all_races)}
+  def test_race_loader_singleton(self):
+    loader1 = races.RaceLoader()
+    index1 = loader1._RaceLoader__index
+    loader2 = races.RaceLoader()
+    index2 = loader2._RaceLoader__index
+    assert id(loader1) == id(loader2), (id(loader1), id(loader2))
+    assert id(index1) == id(index2), (id(index1), id(index2))
 
-  def test_dwarf(self):
-    index = type(self).__index
-    all_races = type(self).__all_races
-    assert 'dwarf' in index
-    assert 'dwarf' in all_races
-    assert index['dwarf'] == 'dwarf.yaml' , index['dwarf']
-    assert repr(all_races['dwarf']) == "Race('dwarf')", repr(all_races['dwarf'])
-    assert all_races['dwarf'].name == 'dwarf', all_races['dwarf'].name
+  def test_keys_len(self):
+    loader = type(self).__loader
+    assert len(loader.keys()) >= 4, len(loader.keys())
 
-  def test_elf(self):
-    index = type(self).__index
-    all_races = type(self).__all_races
-    assert 'elf' in index
-    assert 'elf' in all_races
-    assert index['elf'] == 'elf.yaml' , index['elf']
-    assert repr(all_races['elf']) == "Race('elf')", repr(all_races['elf'])
-    assert all_races['elf'].name == 'elf', all_races['elf'].name
+  def test_load_dwarf(self):
+    loader = type(self).__loader
+    assert 'dwarf' in loader.keys()
+    race = loader.load('dwarf')
+    assert repr(race) == "Race('dwarf')", repr(race)
+    assert race.name == 'dwarf', race.name
 
-  def test_halfling(self):
-    index = type(self).__index
-    all_races = type(self).__all_races
-    assert 'halfling' in index
-    assert 'halfling' in all_races
-    assert index['halfling'] == 'halfling.yaml' , index['halfling']
-    assert repr(all_races['halfling']) == "Race('halfling')", repr(all_races['halfling'])
-    assert all_races['halfling'].name == 'halfling', all_races['halfling'].name
+  def test_load_elf(self):
+    loader = type(self).__loader
+    assert 'elf' in loader.keys()
+    race = loader.load('elf')
+    assert repr(race) == "Race('elf')", repr(race)
+    assert race.name == 'elf', race.name
 
-  def test_human(self):
-    index = type(self).__index
-    all_races = type(self).__all_races
-    assert 'human' in index
-    assert 'human' in all_races
-    assert index['human'] == 'human.yaml' , index['human']
-    assert repr(all_races['human']) == "Race('human')", repr(all_races['human'])
-    assert all_races['human'].name == 'human', all_races['human'].name
+  def test_load_halfling(self):
+    loader = type(self).__loader
+    assert 'halfling' in loader.keys()
+    race = loader.load('halfling')
+    assert repr(race) == "Race('halfling')", repr(race)
+    assert race.name == 'halfling', race.name
+
+  def test_load_human(self):
+    loader = type(self).__loader
+    assert 'human' in loader.keys()
+    race = loader.load('human')
+    assert repr(race) == "Race('human')", repr(race)
+    assert race.name == 'human', race.name
 
 
 class TestDwarfRace(unittest.TestCase):
