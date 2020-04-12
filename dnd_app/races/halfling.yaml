@@ -1,0 +1,7 @@
+---
+name: 'halfling'
+ability score modifiers:
+  dex: +2
+  str: -2
+size: small
+speed: 20

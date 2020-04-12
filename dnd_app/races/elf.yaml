@@ -1,0 +1,5 @@
+---
+name: 'elf'
+ability score modifiers:
+  dex: +2
+  con: -2

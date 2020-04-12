@@ -93,11 +93,11 @@ Elf Wizard     |  8  | 13  | 14  | 15  | 12  | 10
 ## Links
 
 - [Gnome ToolKit][gtk]
-  - [Gnome ToolKit 3 documentation][gtk3-doc]
+  - [GTK+ 3 documentation][gtk3-doc]
 - [Python 3][py]
 - [d20 SRD][srd]
 
 [gtk]: https://www.gtk.org/
 [gtk3-doc]: https://developer.gnome.org/gtk3/stable/
 [py]: https://www.python.org/
-[srd]: https://www.d20srd.org/
+[srd]: https://www.d20srd.org/index.htm
