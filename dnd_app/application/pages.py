@@ -44,3 +44,10 @@ class CharacterPage(Gtk.Box, Page):
     self.add(Gtk.Label(label=character.name))
     self.add(Gtk.Label(label=character.description()))
     self.add(Gtk.Label(label=character.class0))
+    grd = Gtk.Grid()
+    row = 0
+    for key in character.ability_scores:
+      grd.attach(Gtk.Label(label=key.upper()), 0, row, 1, 1)
+      grd.attach(Gtk.Label(label=character.ability_scores[key]), 1, row, 1, 1)
+      row += 1
+    self.add(grd)

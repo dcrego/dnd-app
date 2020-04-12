@@ -18,6 +18,7 @@ class Character:
     self.gender = character_data['description']['gender']
     self.race = character_data['description']['race']
     self.class0 = character_data['class']
+    self.ability_scores = character_data['ability scores']
 
   def description(self):
-    return '%s %s'%(self.gender, self.race)
+    return f'{self.gender} {self.race}'
