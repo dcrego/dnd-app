@@ -28,6 +28,9 @@ class Race:
   def __repr__(self):
     return f'Race({repr(self.name)})'
 
+  def __str__(self):
+    return self.name
+
 
 class RaceLoader:
 

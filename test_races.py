@@ -66,6 +66,7 @@ class TestRaceLoader(unittest.TestCase):
     race = loader.load('dwarf')
     assert repr(race) == "Race('dwarf')", repr(race)
     assert race.name == 'dwarf', race.name
+    assert str(race) == 'dwarf', str(race)
 
   def test_load_elf(self):
     loader = type(self).__loader
@@ -73,6 +74,7 @@ class TestRaceLoader(unittest.TestCase):
     race = loader.load('elf')
     assert repr(race) == "Race('elf')", repr(race)
     assert race.name == 'elf', race.name
+    assert str(race) == 'elf', str(race)
 
   def test_load_halfling(self):
     loader = type(self).__loader
@@ -80,6 +82,7 @@ class TestRaceLoader(unittest.TestCase):
     race = loader.load('halfling')
     assert repr(race) == "Race('halfling')", repr(race)
     assert race.name == 'halfling', race.name
+    assert str(race) == 'halfling', str(race)
 
   def test_load_human(self):
     loader = type(self).__loader
@@ -87,6 +90,7 @@ class TestRaceLoader(unittest.TestCase):
     race = loader.load('human')
     assert repr(race) == "Race('human')", repr(race)
     assert race.name == 'human', race.name
+    assert str(race) == 'human', str(race)
 
 
 class TestDwarfRace(unittest.TestCase):
@@ -97,6 +101,7 @@ class TestDwarfRace(unittest.TestCase):
     race = type(self).__race
     assert repr(type(self).__race) == "Race('dwarf')", repr(type(self).__race)
     assert race.name == 'dwarf', race.name
+    assert str(race) == 'dwarf', str(race)
 
   def test_ability_mods_str(self):
     race = type(self).__race
@@ -139,6 +144,7 @@ class TestElffRace(unittest.TestCase):
     race = type(self).__race
     assert repr(type(self).__race) == "Race('elf')", repr(type(self).__race)
     assert race.name == 'elf', race.name
+    assert str(race) == 'elf', str(race)
 
   def test_ability_mods_str(self):
     race = type(self).__race
@@ -181,6 +187,7 @@ class TestHalflingfRace(unittest.TestCase):
     race = type(self).__race
     assert repr(type(self).__race) == "Race('halfling')", repr(type(self).__race)
     assert race.name == 'halfling', race.name
+    assert str(race) == 'halfling', str(race)
 
   def test_ability_mods_str(self):
     race = type(self).__race
@@ -223,6 +230,7 @@ class TestHumanRace(unittest.TestCase):
     race = type(self).__race
     assert repr(type(self).__race) == "Race('human')", repr(type(self).__race)
     assert race.name == 'human', race.name
+    assert str(race) == 'human', str(race)
 
   def test_ability_mods_str(self):
     race = type(self).__race
