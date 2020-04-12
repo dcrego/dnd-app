@@ -31,7 +31,7 @@ Planned one character for each basic class according to [SRD][srd]
 ## Links
 
 - [Gnome ToolKit][gtk]
-  - [Gnome ToolKit 3 documentation][gtk3-doc]
+  - [GTK+ 3 documentation][gtk3-doc]
 - [Python 3][py]
 - [d20 SRD][srd]
 
