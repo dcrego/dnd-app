@@ -38,4 +38,4 @@ Planned one character for each basic class according to [SRD][srd]
 [gtk]: https://www.gtk.org/
 [gtk3-doc]: https://developer.gnome.org/gtk3/stable/
 [py]: https://www.python.org/
-[srd]: https://www.d20srd.org/
+[srd]: https://www.d20srd.org/index.htm

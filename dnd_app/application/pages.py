@@ -24,7 +24,7 @@ class CharactersPage(Gtk.Box, Page):
       btn = Gtk.Button()
       box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
       box.add(Gtk.Label(label=character.name))
-      box.add(Gtk.Label(label='%s %s'%(character.description(), character.class0)))
+      box.add(Gtk.Label(label=f'{character.description()} {character.class0}'))
       btn.add(box)
       btn.connect('clicked', create_on_clicked(character))
       btns.add(btn)

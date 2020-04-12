@@ -4,10 +4,7 @@ from . import pages
 class Application(Gtk.Application):
 
   def __init__(self):
-    options = {
-      'application_id': 'org.dcrego.dnd-app'
-    }
-    super().__init__(**options)
+    super().__init__(application_id='com.github.dcrego.dnd-app')
     def on_activate(app:Application):
       appwin = ApplicationWindow(app)
       appwin.navigate(pages.CharactersPage(appwin))
