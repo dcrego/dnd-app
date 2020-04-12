@@ -1,0 +1,5 @@
+---
+dwarf: dwarf.yaml
+elf: elf.yaml
+halfling: halfling.yaml
+human: human.yaml

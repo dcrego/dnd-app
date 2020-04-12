@@ -1,10 +1,5 @@
+from typing import Iterable
 import pkg_resources, yaml
-
-def get_characters():
-  with pkg_resources.resource_stream(__package__, 'preset-characters.yaml') as characters_stream:
-    character_files = yaml.full_load(characters_stream)
-  for character_file in character_files:
-    yield Character(character_file)
 
 
 class Character:
@@ -16,8 +11,16 @@ class Character:
       character_data = yaml.full_load(character_stream)
     self.name = character_data['name']
     self.gender = character_data['description']['gender']
-    self.race = character_data['description']['race']
+    from ..races import load_race
+    self.race = load_race(character_data['description']['race'])
     self.class0 = character_data['class']
 
   def description(self):
     return '%s %s'%(self.gender, self.race)
+
+
+def get_characters() -> Iterable[Character]:
+  with pkg_resources.resource_stream(__package__, 'preset-characters.yaml') as characters_stream:
+    character_files = yaml.full_load(characters_stream)
+  for character_file in character_files:
+    yield Character(character_file)

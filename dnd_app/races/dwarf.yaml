@@ -1,0 +1,6 @@
+---
+name: 'dwarf'
+ability score modifiers:
+  con: +2
+  cha: -2
+speed: 20
