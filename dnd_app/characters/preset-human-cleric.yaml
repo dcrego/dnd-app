@@ -4,3 +4,10 @@ description:
   gender: female
   race: human
 class: cleric
+ability scores:
+  str: 12
+  dex: 10
+  con: 13
+  int: 8
+  wis: 15
+  cha: 14

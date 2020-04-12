@@ -4,3 +4,10 @@ description:
   gender: female
   race: elf
 class: wizard
+ability scores:
+  str: 8
+  dex: 13
+  con: 14
+  int: 15
+  wis: 12
+  cha: 10

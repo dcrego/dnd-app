@@ -4,3 +4,10 @@ description:
   gender: male
   race: dwarf
 class: fighter
+ability scores:
+  str: 14
+  dex: 10
+  con: 15
+  int: 13
+  wis: 12
+  cha: 8
